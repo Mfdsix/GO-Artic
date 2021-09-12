@@ -134,7 +134,7 @@ func articleUpdate(w http.ResponseWriter, r *http.Request) {
 	for index, article := range DArticles {
 		if fmt.Sprint(article.Id) == id {
 			updateArticle.Id = article.Id
-			DArticles = append(DArticles[:index], updateArticle)
+			DArticles[index] = updateArticle
 
 			json.NewEncoder(w).Encode(MRequestResponse{
 				Success: true,
@@ -157,7 +157,7 @@ func articleDelete(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Endpoint Hit: articlesDelete with id " + id)
 	for index, article := range DArticles {
 		if fmt.Sprint(article.Id) == id {
-			DArticles = append(DArticles[:index], DArticles[:index+1]...)
+			DArticles = append(DArticles[:index], DArticles[index+1:]...)
 			json.NewEncoder(w).Encode(MRequestResponse{
 				Success: true,
 				Status:  "Article Deleted Successfully",
