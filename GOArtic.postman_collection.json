@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "558a1169-5113-4e02-9fd8-1fee506c6b12",
+		"name": "GOArtic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE}}/articles",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"articles"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/articles",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:10:15 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "603"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "[{\"id\":1,\"title\":\"Article One\",\"desc\":\"Article One Description\",\"content\":\"Article One Content, Article One Content\"},{\"id\":2,\"title\":\"Article Two\",\"desc\":\"Article Two Description\",\"content\":\"Article Two Content, Article Two Content\"},{\"id\":3,\"title\":\"Article Three\",\"desc\":\"Article Three Description\",\"content\":\"Article Three Content, Article Three Content\"},{\"id\":4,\"title\":\"Article Four\",\"desc\":\"Article Four Description\",\"content\":\"Article Four Content, Article Four Content\"},{\"id\":5,\"title\":\"Article Five\",\"desc\":\"Article Five Description\",\"content\":\"Article Five Content, Article Five Content\"}]\n"
+				}
+			]
+		},
+		{
+			"name": "Get One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE}}/article/1",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"article",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/article/1",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:12:46 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "117"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"id\":1,\"title\":\"Article One\",\"desc\":\"Article One Description\",\"content\":\"Article One Content, Article One Content\"}\n"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/article/1111",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article",
+								"1111"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:12:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":false,\"status\":\"Article Not Found\"}\n"
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"new article\",\r\n    \"desc\": \"new article desc\",\r\n    \"content\": \"new article content, new article content\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}/article",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"article"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/article",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:11:05 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":false,\"status\":\"Article Title is Required\"}\n"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"new article\",\r\n    \"desc\": \"new article desc\",\r\n    \"content\": \"new article content, new article content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/article",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:11:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":true,\"status\":\"Article Created Successfully\"}\n"
+				}
+			]
+		},
+		{
+			"name": "Update One",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"updated article\",\r\n    \"desc\": \"updated article desc\",\r\n    \"content\": \"updated article content, updated article content\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}/article/1",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"article",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/article/1",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:13:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":false,\"status\":\"Article Title is Required\"}\n"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"updated article\",\r\n    \"desc\": \"updated article desc\",\r\n    \"content\": \"updated article content, updated article content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/article/1",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:13:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":true,\"status\":\"Article Updated Successfully\"}\n"
+				}
+			]
+		},
+		{
+			"name": "Delete One",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE}}/article/1",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"article",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/article/111",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article",
+								"111"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:15:53 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":false,\"status\":\"Article Not Found\"}\n"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/article/1",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"article",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Sep 2021 07:16:07 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"success\":true,\"status\":\"Article Deleted Successfully\"}\n"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE",
+			"value": "http://localhost:10000"
+		}
+	]
+}
